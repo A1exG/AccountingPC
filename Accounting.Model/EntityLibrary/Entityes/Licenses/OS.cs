@@ -8,5 +8,8 @@ namespace Accounting.Model.EntityLibrary.Entityes.Licenses
         public string DisplayName { get; set; }
         public string VendorName { get; set; }
         public string LicenseType { get; set; }
+
+        public int LicenseId { get; set; }
+        public virtual License License { get; set; }
     }
 }

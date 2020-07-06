@@ -1,4 +1,5 @@
 ﻿using Accounting.Model.EntityLibrary.Interfaces;
+using System.Collections.Generic;
 
 namespace Accounting.Model.EntityLibrary.Entityes.Departments
 {
@@ -6,5 +7,7 @@ namespace Accounting.Model.EntityLibrary.Entityes.Departments
     {
         public int Id { get; set; }
         public string DisplayName { get; set; }
+
+        public virtual IEnumerable<Users.User> Users { get; set; }
     }
 }
