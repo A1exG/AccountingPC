@@ -2,7 +2,7 @@
 
 namespace Accounting.Model.EntityLibrary.Entityes.Users
 {
-    class ProgrammUser : IEntity, IUser
+    public class ProgrammUser : IEntity, IUser
     {
         public int Id { get; set; }
         public string DisplayName { get; set; }
