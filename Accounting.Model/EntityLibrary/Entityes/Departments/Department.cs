@@ -5,6 +5,10 @@ namespace Accounting.Model.EntityLibrary.Entityes.Departments
 {
     public class Department : IEntity
     {
+        public Department()
+        {
+            this.Users = new HashSet<Users.User>();
+        }
         public int Id { get; set; }
         public string DisplayName { get; set; }
 

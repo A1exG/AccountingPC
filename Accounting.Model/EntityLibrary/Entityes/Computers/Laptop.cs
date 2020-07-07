@@ -6,6 +6,11 @@ namespace Accounting.Model.EntityLibrary.Entityes.Computers
 {
     public class Laptop : IEntity, IComputer
     {
+        public Laptop()
+        {
+            this.HardWares = new HashSet<HardWare.HardWare>();
+            this.Licenses = new HashSet<Licenses.License>();
+        }
         public int Id { get; set; }
         public string DisplayName { get; set; }
         public string DomenName { get; set; }

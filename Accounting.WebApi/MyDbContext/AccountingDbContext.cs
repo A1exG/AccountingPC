@@ -4,12 +4,16 @@ using Accounting.Model.EntityLibrary.Entityes.HardWare;
 using Accounting.Model.EntityLibrary.Entityes.Licenses;
 using Accounting.Model.EntityLibrary.Entityes.Printers;
 using Accounting.Model.EntityLibrary.Entityes.Users;
-using Microsoft.EntityFrameworkCore;
+using System.Data.Entity;
 
 namespace Accounting.WebApi.MyDbContext
 {
     public class AccountingDbContext : DbContext
     {
+        public AccountingDbContext()
+            : base("name=DefaultConnection")
+        {}
+
         public DbSet<Computer> Computers { get; set; }
         public DbSet<Laptop> Laptops { get; set; }
 
@@ -32,5 +36,6 @@ namespace Accounting.WebApi.MyDbContext
 
         public DbSet<User> Users { get; set; }
         public DbSet<ProgrammUser> ProgrammUsers { get; set; }
+
     }
 }

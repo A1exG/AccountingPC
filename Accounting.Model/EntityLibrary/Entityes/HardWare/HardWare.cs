@@ -6,6 +6,16 @@ namespace Accounting.Model.EntityLibrary.Entityes.HardWare
 {
     public class HardWare : IEntity
     {
+        public HardWare()
+        {
+            this.Processors = new HashSet<Processor>();
+            this.Motherboards = new HashSet<Motherboard>();
+            this.RAMs = new HashSet<RAM>();
+            this.StorageDevices = new HashSet<StorageDevice>();
+            this.PowerSupples = new HashSet<PowerSupply>();
+            this.GraphicsCards = new HashSet<GraphicsCard>();
+
+        }
 
         public int Id { get; set; }
         public string DisplayName { get; set; }

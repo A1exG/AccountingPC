@@ -6,6 +6,13 @@ namespace Accounting.Model.EntityLibrary.Entityes.Licenses
 {
     public class License : IEntity
     {
+        public License()
+        {
+            this.OSs = new HashSet<OS>();
+            this.Softs = new HashSet<Soft>();
+
+        }
+
         public int Id { get; set; }
         public string DisplayName { get; set; }
 
