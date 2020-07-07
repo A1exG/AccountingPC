@@ -31,7 +31,6 @@ namespace Accounting.WebApi.MyDbContext
         public DbSet<OS> OSs { get; set; }
         public DbSet<Soft> Softs { get; set; }
 
-        public DbSet<MFU> MFUs { get; set; }
         public DbSet<Printer> Printers { get; set; }
 
         public DbSet<User> Users { get; set; }

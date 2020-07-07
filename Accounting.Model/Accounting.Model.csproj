@@ -57,7 +57,6 @@
     <Compile Include="EntityLibrary\Entityes\Licenses\License.cs" />
     <Compile Include="EntityLibrary\Entityes\Licenses\OS.cs" />
     <Compile Include="EntityLibrary\Entityes\Licenses\Soft.cs" />
-    <Compile Include="EntityLibrary\Entityes\Printers\MFU.cs" />
     <Compile Include="EntityLibrary\Entityes\Printers\Printer.cs" />
     <Compile Include="EntityLibrary\Entityes\Users\ProgrammUser.cs" />
     <Compile Include="EntityLibrary\Entityes\Users\User.cs" />

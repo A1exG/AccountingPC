@@ -12,7 +12,7 @@ namespace Accounting.Model.EntityLibrary.Interfaces
     }
     public enum PrinterType
     {
-        printer,
+        Printer,
         MFU
     }
 
