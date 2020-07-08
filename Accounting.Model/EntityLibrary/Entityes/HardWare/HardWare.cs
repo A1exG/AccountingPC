@@ -23,9 +23,6 @@ namespace Accounting.Model.EntityLibrary.Entityes.HardWare
         public int ComputerId { get; set; }
         public virtual Computer Computer { get; set; }
 
-        public int LaptopId { get; set; }
-        public virtual Laptop Laptop { get; set; }
-
 
         public virtual IEnumerable<Processor> Processors { get; set; }
         public virtual IEnumerable<Motherboard> Motherboards { get; set; }

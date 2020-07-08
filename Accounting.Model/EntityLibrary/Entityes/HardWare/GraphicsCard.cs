@@ -1,5 +1,6 @@
 ﻿using Accounting.Model.EntityLibrary.Interfaces;
 using System;
+using System.ComponentModel;
 
 namespace Accounting.Model.EntityLibrary.Entityes.HardWare
 {
@@ -18,3 +19,8 @@ namespace Accounting.Model.EntityLibrary.Entityes.HardWare
         public int Count { get; set; }
     }
 }
+
+  
+
+    
+

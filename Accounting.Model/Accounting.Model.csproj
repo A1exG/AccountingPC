@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityLibrary\Entityes\Computers\Computer.cs" />
-    <Compile Include="EntityLibrary\Entityes\Computers\Laptop.cs" />
     <Compile Include="EntityLibrary\Entityes\Departments\Department.cs" />
     <Compile Include="EntityLibrary\Entityes\HardWare\GraphicsCard.cs" />
     <Compile Include="EntityLibrary\Entityes\HardWare\HardWare.cs" />

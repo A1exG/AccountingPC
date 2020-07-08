@@ -16,9 +16,11 @@ namespace Accounting.Model.EntityLibrary.Entityes.Computers
         public string DisplayName { get; set; }
         public string DomenName { get; set; }
         public DateTime DateInstallOS { get; set; }
+        public ComputerType ComputerType { get; set; }
+
 
         public virtual IEnumerable<HardWare.HardWare> HardWares { get; set; }
         public virtual IEnumerable<Licenses.License> Licenses { get; set; }
-
+        
     }
 }

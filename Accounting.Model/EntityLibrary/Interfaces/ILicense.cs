@@ -4,5 +4,6 @@
     {
         string VendorName { get; set; }
         string LicenseType { get; set; }
+        string LicenseCode { get; set; }
     }
 }
