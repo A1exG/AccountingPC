@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using Accounting.WebApi.Areas.HelpPage.ModelDescriptions;
+using Accounting.WebAPI.Areas.HelpPage.ModelDescriptions;
 
-namespace Accounting.WebApi.Areas.HelpPage.Models
+namespace Accounting.WebAPI.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

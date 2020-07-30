@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using Accounting.WebApi.Areas.HelpPage.ModelDescriptions;
-using Accounting.WebApi.Areas.HelpPage.Models;
+using Accounting.WebAPI.Areas.HelpPage.ModelDescriptions;
+using Accounting.WebAPI.Areas.HelpPage.Models;
 
-namespace Accounting.WebApi.Areas.HelpPage.Controllers
+namespace Accounting.WebAPI.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

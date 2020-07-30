@@ -1,6 +1,6 @@
 using System;
 
-namespace Accounting.WebApi.Areas.HelpPage.ModelDescriptions
+namespace Accounting.WebAPI.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Use this attribute to change the name of the <see cref="ModelDescription"/> generated for a type.

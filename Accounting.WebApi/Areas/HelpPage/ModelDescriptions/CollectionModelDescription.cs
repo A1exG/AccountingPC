@@ -1,4 +1,4 @@
-namespace Accounting.WebApi.Areas.HelpPage.ModelDescriptions
+namespace Accounting.WebAPI.Areas.HelpPage.ModelDescriptions
 {
     public class CollectionModelDescription : ModelDescription
     {

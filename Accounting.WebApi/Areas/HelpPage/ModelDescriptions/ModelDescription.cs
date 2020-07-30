@@ -1,6 +1,6 @@
 using System;
 
-namespace Accounting.WebApi.Areas.HelpPage.ModelDescriptions
+namespace Accounting.WebAPI.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

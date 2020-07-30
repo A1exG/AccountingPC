@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Accounting.Model.EntityLibrary.Entityes.Computers
 {
+    /// <summary>
+    /// Компьютер
+    /// </summary>
     public class Computer : IEntity, IComputer
     {
         public Computer()
