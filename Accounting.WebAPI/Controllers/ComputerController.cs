@@ -14,11 +14,8 @@ namespace Accounting.WebAPI.Controllers
     /// </summary>
     public class ComputerController : ApiController
     {
-        ComputerRepository _computerRepository;
-        public ComputerController()
-        {
-            _computerRepository = new ComputerRepository();
-        }
+        private readonly ComputerRepository _computerRepository = new ComputerRepository();
+
         /// <summary>
         /// Получить список всех компьютеров
         /// </summary>
