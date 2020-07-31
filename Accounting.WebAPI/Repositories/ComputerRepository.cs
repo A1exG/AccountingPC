@@ -16,9 +16,14 @@ namespace Accounting.WebAPI.Repositories
             throw new NotImplementedException();
         }
 
-        public int Post(Computer t)
+        public int Post(Computer comp)
         {
             throw new NotImplementedException();
+        }
+
+        public void Edit(int id)
+        {
+            
         }
 
         public int Delete(int id)

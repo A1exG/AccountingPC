@@ -20,7 +20,7 @@ namespace Accounting.WebAPI.Controllers
         /// Получить список всех компьютеров
         /// </summary>
         /// <returns>Список всех компьютеров</returns>
-        public List<Computer> Get()
+        public List<Computer> GetAllComputers()
         {
             return _computerRepository.Get();
         }
@@ -43,7 +43,7 @@ namespace Accounting.WebAPI.Controllers
             /// </summary>
             /// <param name="id">Id компьютера</param>
             /// <returns>Компьютер</returns>
-        public Computer Get(int id)
+        public Computer GetComputer(int id)
         {
             return _computerRepository.GetByID(id);
         }
@@ -51,10 +51,26 @@ namespace Accounting.WebAPI.Controllers
         /// 
         /// </summary>
         /// <param name="comp"></param>
-        public void Post(Computer comp)
+        [HttpPost]
+        public void CreateComputer([FromBody]Computer comp)
         {
             _computerRepository.Post(comp);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="comp"></param>
+        [HttpPut]
+        public void EditComputer(int id, [FromBody]Computer comp)
+        {
+            if(id == comp.Id)
+            {
+                _computerRepository.Edit(id);
+            } 
+        }
+
+
         /// <summary>
         /// 
         /// </summary>
