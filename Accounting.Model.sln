@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.WebAPI", "Accoun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.DesktopUI", "Accounting.DesktopUI\Accounting.DesktopUI.csproj", "{BBFF9C1C-86FC-4E34-9EBE-14E56EF581A6}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Accounting.Data", "Accounting.Data\Accounting.Data.sqlproj", "{0FADDE61-C817-4261-A738-6489E1583FE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{BBFF9C1C-86FC-4E34-9EBE-14E56EF581A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBFF9C1C-86FC-4E34-9EBE-14E56EF581A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBFF9C1C-86FC-4E34-9EBE-14E56EF581A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FADDE61-C817-4261-A738-6489E1583FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FADDE61-C817-4261-A738-6489E1583FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FADDE61-C817-4261-A738-6489E1583FE1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0FADDE61-C817-4261-A738-6489E1583FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FADDE61-C817-4261-A738-6489E1583FE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FADDE61-C817-4261-A738-6489E1583FE1}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
