@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Model", "Account
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.WebAPI", "Accounting.WebAPI\Accounting.WebAPI.csproj", "{9587ED1D-83CE-4433-AAA8-31034942DFE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.DesktopUI", "Accounting.DesktopUI\Accounting.DesktopUI.csproj", "{BBFF9C1C-86FC-4E34-9EBE-14E56EF581A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9587ED1D-83CE-4433-AAA8-31034942DFE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9587ED1D-83CE-4433-AAA8-31034942DFE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9587ED1D-83CE-4433-AAA8-31034942DFE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBFF9C1C-86FC-4E34-9EBE-14E56EF581A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBFF9C1C-86FC-4E34-9EBE-14E56EF581A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBFF9C1C-86FC-4E34-9EBE-14E56EF581A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBFF9C1C-86FC-4E34-9EBE-14E56EF581A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
