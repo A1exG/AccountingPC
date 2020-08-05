@@ -30,7 +30,8 @@ namespace Accounting.DesktopUI
 
             _container
                 .Singleton<IWindowManager, WindowManager>()
-                .Singleton<IEventAggregator, EventAggregator>();
+                .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<IAPIHelper, APIHelper>();
 
             //_container
             //    .PerRequest<IService, Service>();

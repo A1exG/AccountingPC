@@ -1,4 +1,5 @@
-﻿using Caliburn.Micro;
+﻿using Accounting.DesktopUI.Helpers;
+using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,12 @@ namespace Accounting.DesktopUI.ViewModels
     {
 		private string _UserName;
 		private string _password;
+		private IAPIHelper _apiHelper;
+
+		public LoginViewModel(IAPIHelper apiHelper)
+		{
+			_apiHelper = apiHelper;
+		}
 
 		public string UserName
 		{
@@ -48,9 +55,17 @@ namespace Accounting.DesktopUI.ViewModels
 			}
 		}
 
-		public void LogIn()
+		public async Task LogIn()
 		{
-			
+			try
+			{
+				var result = await _apiHelper.Authenticate(UserName, Password);
+			}
+			catch (Exception ex)
+			{
+
+				Console.WriteLine(ex.Message);
+			}
 		}
 	}
 }
