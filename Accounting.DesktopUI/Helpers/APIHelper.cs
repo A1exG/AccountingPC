@@ -27,12 +27,12 @@ namespace Accounting.DesktopUI.Helpers
             apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<AuthenticatedUser> Authenticate(string userName, string password)
+        public async Task<AuthenticatedUser> Authenticate(string username, string password)
         {
             var data = new FormUrlEncodedContent(new[]
             {
                 new KeyValuePair<string, string>("grant_type", "password"),
-                new KeyValuePair<string, string>("UserName", userName),
+                new KeyValuePair<string, string>("UserName", username),
                 new KeyValuePair<string, string>("password", password)
             });
 

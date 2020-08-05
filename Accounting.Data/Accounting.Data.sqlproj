@@ -65,4 +65,9 @@
   <ItemGroup>
     <None Include="PublishLocations\Accounting.Data.publish.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\Computers.sql" />
+    <Build Include="dbo\Tables\Departments.sql" />
+  </ItemGroup>
 </Project>

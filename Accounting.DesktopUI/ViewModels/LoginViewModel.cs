@@ -10,7 +10,7 @@ namespace Accounting.DesktopUI.ViewModels
 {
     public class LoginViewModel : Screen
     {
-		private string _UserName;
+		private string _userName;
 		private string _password;
 		private IAPIHelper _apiHelper;
 
@@ -21,10 +21,10 @@ namespace Accounting.DesktopUI.ViewModels
 
 		public string UserName
 		{
-			get { return _UserName; }
+			get { return _userName; }
 			set 
 			{
-				_UserName = value;
+				_userName = value;
 				NotifyOfPropertyChange(() => UserName);
 				NotifyOfPropertyChange(() => CanLogIn);
 			}
