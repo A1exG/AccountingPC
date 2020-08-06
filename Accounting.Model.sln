@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Model", "Accounting.Model\Accounting.Model.csproj", "{CA3488D4-DAC2-460B-A72A-C7701B88C0B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.DataManager.Library", "Accounting.Model\Accounting.DataManager.Library.csproj", "{CA3488D4-DAC2-460B-A72A-C7701B88C0B5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.DesktopUI", "Accounting.DesktopUI\Accounting.DesktopUI.csproj", "{BBFF9C1C-86FC-4E34-9EBE-14E56EF581A6}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Accounting.Data", "Accounting.Data\Accounting.Data.sqlproj", "{0FADDE61-C817-4261-A738-6489E1583FE1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.DataManager", "Accounting.DataManager\Accounting.DataManager.csproj", "{3495E4E5-16F0-4E68-BF70-C23E6CA9124D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.DesktopUI.Library", "Accounting.DesktopUI.Library\Accounting.DesktopUI.Library.csproj", "{2FB462D5-65A5-4A07-8A4E-DE69B15A781D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{3495E4E5-16F0-4E68-BF70-C23E6CA9124D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3495E4E5-16F0-4E68-BF70-C23E6CA9124D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3495E4E5-16F0-4E68-BF70-C23E6CA9124D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FB462D5-65A5-4A07-8A4E-DE69B15A781D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FB462D5-65A5-4A07-8A4E-DE69B15A781D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FB462D5-65A5-4A07-8A4E-DE69B15A781D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FB462D5-65A5-4A07-8A4E-DE69B15A781D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

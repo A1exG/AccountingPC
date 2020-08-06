@@ -1,9 +1,6 @@
-﻿using Accounting.DesktopUI.Helpers;
+﻿using Accounting.DesktopUI.Library.Api;
 using Caliburn.Micro;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Accounting.DesktopUI.ViewModels
@@ -87,6 +84,10 @@ namespace Accounting.DesktopUI.ViewModels
 			{
 				ErrorMessage = "";
 				var result = await _apiHelper.Authenticate(UserName, Password);
+
+				await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+
+
 			}
 			catch (Exception ex)
 			{

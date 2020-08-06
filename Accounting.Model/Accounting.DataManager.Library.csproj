@@ -49,26 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\UserData.cs" />
-    <Compile Include="EntityLibrary\Entityes\Computers\Computer.cs" />
-    <Compile Include="EntityLibrary\Entityes\Departments\Department.cs" />
-    <Compile Include="EntityLibrary\Entityes\HardWare\GraphicsCard.cs" />
-    <Compile Include="EntityLibrary\Entityes\HardWare\HardWare.cs" />
-    <Compile Include="EntityLibrary\Entityes\HardWare\Motherboard.cs" />
-    <Compile Include="EntityLibrary\Entityes\HardWare\PowerSupply.cs" />
-    <Compile Include="EntityLibrary\Entityes\HardWare\Processor.cs" />
-    <Compile Include="EntityLibrary\Entityes\HardWare\RAM.cs" />
-    <Compile Include="EntityLibrary\Entityes\HardWare\StorageDevice.cs" />
-    <Compile Include="EntityLibrary\Entityes\Licenses\License.cs" />
-    <Compile Include="EntityLibrary\Entityes\Licenses\OS.cs" />
-    <Compile Include="EntityLibrary\Entityes\Licenses\Soft.cs" />
-    <Compile Include="EntityLibrary\Entityes\Printers\Printer.cs" />
-    <Compile Include="EntityLibrary\Entityes\Users\UserModel.cs" />
     <Compile Include="EntityLibrary\Interfaces\IEntity.cs" />
-    <Compile Include="EntityLibrary\Interfaces\IHardWare.cs" />
-    <Compile Include="EntityLibrary\Interfaces\ILicense.cs" />
-    <Compile Include="EntityLibrary\Interfaces\IComputer.cs" />
-    <Compile Include="EntityLibrary\Interfaces\IPrinter.cs" />
     <Compile Include="EntityLibrary\Interfaces\IUser.cs" />
+    <Compile Include="EntityLibrary\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Internal\DataAccess\SqlDataAccess.cs" />
   </ItemGroup>

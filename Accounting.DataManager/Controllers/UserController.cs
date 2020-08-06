@@ -1,8 +1,7 @@
-﻿using Accounting.Model.DataAccess;
-using Accounting.Model.EntityLibrary.Entityes.Users;
+﻿using Accounting.DataManager.Library.DataAccess;
+using Accounting.Model.EntityLibrary;
 using Microsoft.AspNet.Identity;
-using System.Collections.Generic;
-using System.Web;
+using System.Linq;
 using System.Web.Http;
 
 namespace Accounting.DataManager.Controllers
@@ -10,11 +9,13 @@ namespace Accounting.DataManager.Controllers
     [Authorize]
     public class UserController : ApiController
     {
-        public List<UserModel> GetById()
+        [HttpGet]
+        public UserModel GetById()
         {
             string userId = RequestContext.Principal.Identity.GetUserId();
             UserData data = new UserData();
-            return data.GetUserById(userId);
+
+            return data.GetUserById(userId).First();
         }
     }
 }

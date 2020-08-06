@@ -1,7 +1,6 @@
-﻿using Accounting.Model.EntityLibrary.Interfaces;
-using System;
+﻿using System;
 
-namespace Accounting.Model.EntityLibrary.Entityes.Users
+namespace Accounting.Model.EntityLibrary
 {
     public class UserModel
     {

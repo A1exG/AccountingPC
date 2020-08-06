@@ -1,4 +1,4 @@
-﻿namespace Accounting.Model.EntityLibrary.Interfaces
+﻿namespace Accounting.DataManager.Library.EntityLibrary.Interfaces
 {
     public interface IEntity
     {

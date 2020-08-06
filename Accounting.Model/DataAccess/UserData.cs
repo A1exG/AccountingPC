@@ -1,7 +1,7 @@
-﻿using Accounting.Model.EntityLibrary.Entityes.Users;
+﻿using Accounting.Model.EntityLibrary;
 using System.Collections.Generic;
 
-namespace Accounting.Model.DataAccess
+namespace Accounting.DataManager.Library.DataAccess
 {
     public class UserData
     {

@@ -6,7 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace Accounting.Model.DataAccess
+namespace Accounting.DataManager.Library.DataAccess
 {
     internal class SqlDataAccess : IDisposable
     {
