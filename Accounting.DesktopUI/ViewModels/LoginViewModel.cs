@@ -1,4 +1,5 @@
-﻿using Accounting.DesktopUI.Library.Api;
+﻿using Accounting.DesktopUI.EventModels;
+using Accounting.DesktopUI.Library.Api;
 using Caliburn.Micro;
 using System;
 using System.Threading.Tasks;
@@ -10,10 +11,12 @@ namespace Accounting.DesktopUI.ViewModels
 		private string _userName;
 		private string _password;
 		private IAPIHelper _apiHelper;
+		private IEventAggregator _events;
 
-		public LoginViewModel(IAPIHelper apiHelper)
+		public LoginViewModel(IAPIHelper apiHelper, IEventAggregator events)
 		{
 			_apiHelper = apiHelper;
+			_events = events;
 		}
 
 		public string UserName
@@ -86,6 +89,8 @@ namespace Accounting.DesktopUI.ViewModels
 				var result = await _apiHelper.Authenticate(UserName, Password);
 
 				await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+
+				_events.BeginPublishOnUIThread(new LogOnEvent());
 
 
 			}

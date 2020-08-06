@@ -67,8 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
-    <Build Include="dbo\Tables\Computers.sql" />
-    <Build Include="dbo\Tables\Departments.sql" />
     <Build Include="dbo\Stored Procedures\spUserLookup.sql" />
   </ItemGroup>
 </Project>

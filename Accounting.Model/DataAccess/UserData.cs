@@ -9,7 +9,7 @@ namespace Accounting.DataManager.Library.DataAccess
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            var p = new { Id = Id };
+            var p = new { Id };
 
             var output = sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", p, "AccountingDataDb");
 

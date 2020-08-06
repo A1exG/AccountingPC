@@ -7,7 +7,7 @@ namespace Accounting.DesktopUI.Library.Models
         DateTime CreatedDate { get; set; }
         string EmailAddress { get; set; }
         string FirstName { get; set; }
-        int Id { get; set; }
+        string Id { get; set; }
         string LastName { get; set; }
         string Token { get; set; }
     }
