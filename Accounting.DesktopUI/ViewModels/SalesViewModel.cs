@@ -41,8 +41,21 @@ namespace Accounting.DesktopUI.ViewModels
 			}
 		}
 
-		private BindingList<ProductModel> _cart;
-		public BindingList<ProductModel> Cart
+		private ProductModel _selectedProduct;
+
+		public ProductModel SelectedProduct
+		{
+			get { return _selectedProduct; }
+			set 
+			{
+				_selectedProduct = value;
+				NotifyOfPropertyChange(() => SelectedProduct);
+			}
+		}
+
+
+		private BindingList<CartItemModel> _cart = new BindingList<CartItemModel>();
+		public BindingList<CartItemModel> Cart
 		{
 			get { return _cart; }
 			set 
@@ -61,6 +74,7 @@ namespace Accounting.DesktopUI.ViewModels
 			{ 
 				_itemQuantity = value;
 				NotifyOfPropertyChange(() => ItemQuantity);
+				NotifyOfPropertyChange(() => CanAddToCart);
 			}
 		}
 		
@@ -98,7 +112,10 @@ namespace Accounting.DesktopUI.ViewModels
 			{
 				bool output = false;
 
-				//
+				if(ItemQuantity > 0 && SelectedProduct?.QuantityInStock >= ItemQuantity)
+				{
+					output = true;
+				}
 
 				return output;
 			}
@@ -106,7 +123,12 @@ namespace Accounting.DesktopUI.ViewModels
 
 		public void AddToCart()
 		{
-
+			CartItemModel item = new CartItemModel
+			{
+				Product = SelectedProduct,
+				QuantityInCatr = ItemQuantity
+			};
+			Cart.Add(item);
 		}
 
 		public bool CanRemoveFromCart
