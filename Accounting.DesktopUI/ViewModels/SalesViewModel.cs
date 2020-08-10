@@ -1,4 +1,6 @@
-﻿using Caliburn.Micro;
+﻿using Accounting.DesktopUI.Library.Api;
+using Accounting.DesktopUI.Library.Models;
+using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,19 +12,37 @@ namespace Accounting.DesktopUI.ViewModels
 {
     public class SalesViewModel : Screen
     {
-		private BindingList<string> _product;
-		public BindingList<string> Product
+		IProductEndpoint _productEndpoint;
+		public SalesViewModel(IProductEndpoint productEndpoint)
+		{
+			_productEndpoint = productEndpoint;
+		}
+
+		protected override async void OnViewLoaded(object view)
+		{
+			base.OnViewLoaded(view);
+			await LoadProducts();
+		}
+
+		private async Task LoadProducts()
+		{
+			var productList = await _productEndpoint.GetAll();
+			Products = new BindingList<ProductModel>(productList);
+		}
+
+		private BindingList<ProductModel> _product;
+		public BindingList<ProductModel> Products
 		{
 			get { return _product; }
 			set 
 			{ 
 				_product = value;
-				NotifyOfPropertyChange(() => Product);
+				NotifyOfPropertyChange(() => Products);
 			}
 		}
 
-		private BindingList<string> _cart;
-		public BindingList<string> Cart
+		private BindingList<ProductModel> _cart;
+		public BindingList<ProductModel> Cart
 		{
 			get { return _cart; }
 			set 
