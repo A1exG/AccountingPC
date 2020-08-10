@@ -1,5 +1,6 @@
 ﻿using Accounting.DesktopUI.Helpers;
 using Accounting.DesktopUI.Library.Api;
+using Accounting.DesktopUI.Library.Helpers;
 using Accounting.DesktopUI.Library.Models;
 using Accounting.DesktopUI.ViewModels;
 using Caliburn.Micro;
@@ -33,6 +34,7 @@ namespace Accounting.DesktopUI
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
                 .Singleton<ILoggedInUserModel, LoggedInUserModel>()
+                .Singleton<IConfigHelper, ConfigHelper>()
                 .Singleton<IAPIHelper, APIHelper>();
 
 

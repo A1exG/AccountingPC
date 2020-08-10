@@ -1,4 +1,5 @@
 ﻿using Accounting.DesktopUI.Library.Api;
+using Accounting.DesktopUI.Library.Helpers;
 using Accounting.DesktopUI.Library.Models;
 using Caliburn.Micro;
 using System;
@@ -13,9 +14,11 @@ namespace Accounting.DesktopUI.ViewModels
     public class SalesViewModel : Screen
     {
 		IProductEndpoint _productEndpoint;
-		public SalesViewModel(IProductEndpoint productEndpoint)
+		IConfigHelper _configHelper;
+		public SalesViewModel(IProductEndpoint productEndpoint, IConfigHelper configHelper)
 		{
 			_productEndpoint = productEndpoint;
+			_configHelper = configHelper;
 		}
 
 		protected override async void OnViewLoaded(object view)
@@ -66,7 +69,7 @@ namespace Accounting.DesktopUI.ViewModels
 		}
 
 
-		private int _itemQuantity;
+		private int _itemQuantity = 1;
 		public int ItemQuantity
 		{
 			get { return _itemQuantity; }
@@ -81,27 +84,51 @@ namespace Accounting.DesktopUI.ViewModels
 		public string SubTotal
 		{
 			get 
-			{ 
-				//
-				return "$0.00"; 
+			{
+				return CalculateSubTotal().ToString("C"); 
 			}
+		}
+
+		private decimal CalculateSubTotal()
+		{
+			decimal subTotal = 0;
+
+			foreach (var item in Cart)
+			{
+				subTotal += (item.Product.RetailPrice * item.QuantityInCatr);
+			}
+			return subTotal;
 		}
 
 		public string Tax
 		{
 			get
 			{
-				//
-				return "$0.00";
+				return CalculateTax().ToString("C");
 			}
+		}
+
+		private decimal CalculateTax()
+		{
+			decimal taxAmount = 0;
+			decimal taxRate = _configHelper.GetTaxRate();
+
+			foreach (var item in Cart)
+			{
+				if (item.Product.IsTaxable)
+				{
+					taxAmount += (item.Product.RetailPrice * item.QuantityInCatr * taxRate);
+				}
+			}
+			return taxAmount;
 		}
 
 		public string Total
 		{
 			get
 			{
-				//
-				return "$0.00";
+				decimal total = CalculateSubTotal() + CalculateTax();
+				return total.ToString("C");
 			}
 		}
 
@@ -123,12 +150,29 @@ namespace Accounting.DesktopUI.ViewModels
 
 		public void AddToCart()
 		{
-			CartItemModel item = new CartItemModel
+			CartItemModel existingItem = Cart.FirstOrDefault(x => x.Product == SelectedProduct);
+
+			if(existingItem != null)
 			{
-				Product = SelectedProduct,
-				QuantityInCatr = ItemQuantity
-			};
-			Cart.Add(item);
+				existingItem.QuantityInCatr += ItemQuantity;
+				Cart.Remove(existingItem);
+				Cart.Add(existingItem);
+			}
+			else
+			{
+				CartItemModel item = new CartItemModel
+				{
+					Product = SelectedProduct,
+					QuantityInCatr = ItemQuantity
+				};
+				Cart.Add(item);
+			}
+			
+			SelectedProduct.QuantityInStock -= ItemQuantity;
+			ItemQuantity = 1;
+			NotifyOfPropertyChange(() => SubTotal);
+			NotifyOfPropertyChange(() => Tax);
+			NotifyOfPropertyChange(() => Total);
 		}
 
 		public bool CanRemoveFromCart
@@ -145,7 +189,9 @@ namespace Accounting.DesktopUI.ViewModels
 
 		public void RemoveFromCart()
 		{
-
+			NotifyOfPropertyChange(() => SubTotal);
+			NotifyOfPropertyChange(() => Tax);
+			NotifyOfPropertyChange(() => Total);
 		}
 
 
