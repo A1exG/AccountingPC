@@ -1,6 +1,8 @@
 ﻿using Accounting.DesktopUI.Library.Api;
 using Accounting.DesktopUI.Library.Helpers;
 using Accounting.DesktopUI.Library.Models;
+using Accounting.DesktopUI.Models;
+using AutoMapper;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -16,11 +18,14 @@ namespace Accounting.DesktopUI.ViewModels
 		IProductEndpoint _productEndpoint;
 		IConfigHelper _configHelper;
 		ISaleEndpoint _saleEndpoint;
-		public SalesViewModel(IProductEndpoint productEndpoint, IConfigHelper configHelper, ISaleEndpoint saleEndpoint)
+		IMapper _mapper;
+		public SalesViewModel(IProductEndpoint productEndpoint, IConfigHelper configHelper, 
+			ISaleEndpoint saleEndpoint, IMapper mapper)
 		{
 			_productEndpoint = productEndpoint;
 			_configHelper = configHelper;
 			_saleEndpoint = saleEndpoint;
+			_mapper = mapper;
 		}
 
 		protected override async void OnViewLoaded(object view)
@@ -32,11 +37,12 @@ namespace Accounting.DesktopUI.ViewModels
 		private async Task LoadProducts()
 		{
 			var productList = await _productEndpoint.GetAll();
-			Products = new BindingList<ProductModel>(productList);
+			var products = _mapper.Map<List<ProductDisplayModel>>(productList);
+			Products = new BindingList<ProductDisplayModel>(products);
 		}
 
-		private BindingList<ProductModel> _product;
-		public BindingList<ProductModel> Products
+		private BindingList<ProductDisplayModel> _product;
+		public BindingList<ProductDisplayModel> Products
 		{
 			get { return _product; }
 			set 
@@ -46,9 +52,9 @@ namespace Accounting.DesktopUI.ViewModels
 			}
 		}
 
-		private ProductModel _selectedProduct;
+		private ProductDisplayModel _selectedProduct;
 
-		public ProductModel SelectedProduct
+		public ProductDisplayModel SelectedProduct
 		{
 			get { return _selectedProduct; }
 			set 
@@ -59,8 +65,8 @@ namespace Accounting.DesktopUI.ViewModels
 		}
 
 
-		private BindingList<CartItemModel> _cart = new BindingList<CartItemModel>();
-		public BindingList<CartItemModel> Cart
+		private BindingList<CartItemDisplayModel> _cart = new BindingList<CartItemDisplayModel>();
+		public BindingList<CartItemDisplayModel> Cart
 		{
 			get { return _cart; }
 			set 
@@ -148,17 +154,16 @@ namespace Accounting.DesktopUI.ViewModels
 
 		public void AddToCart()
 		{
-			CartItemModel existingItem = Cart.FirstOrDefault(x => x.Product == SelectedProduct);
+			CartItemDisplayModel existingItem = Cart.FirstOrDefault(x => x.Product == SelectedProduct);
 
 			if(existingItem != null)
 			{
 				existingItem.QuantityInCatr += ItemQuantity;
-				Cart.Remove(existingItem);
-				Cart.Add(existingItem);
+
 			}
 			else
 			{
-				CartItemModel item = new CartItemModel
+				CartItemDisplayModel item = new CartItemDisplayModel
 				{
 					Product = SelectedProduct,
 					QuantityInCatr = ItemQuantity
