@@ -8,8 +8,8 @@ namespace Accounting.DesktopUI.ViewModels
 {
     public class LoginViewModel : Screen
     {
-		private string _userName;
-		private string _password;
+		private string _userName = "alex@alex.com";
+		private string _password = "Paswrd123.";
 		private IAPIHelper _apiHelper;
 		private IEventAggregator _events;
 

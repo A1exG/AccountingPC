@@ -15,10 +15,12 @@ namespace Accounting.DesktopUI.ViewModels
     {
 		IProductEndpoint _productEndpoint;
 		IConfigHelper _configHelper;
-		public SalesViewModel(IProductEndpoint productEndpoint, IConfigHelper configHelper)
+		ISaleEndpoint _saleEndpoint;
+		public SalesViewModel(IProductEndpoint productEndpoint, IConfigHelper configHelper, ISaleEndpoint saleEndpoint)
 		{
 			_productEndpoint = productEndpoint;
 			_configHelper = configHelper;
+			_saleEndpoint = saleEndpoint;
 		}
 
 		protected override async void OnViewLoaded(object view)
@@ -169,6 +171,7 @@ namespace Accounting.DesktopUI.ViewModels
 			NotifyOfPropertyChange(() => SubTotal);
 			NotifyOfPropertyChange(() => Tax);
 			NotifyOfPropertyChange(() => Total);
+			NotifyOfPropertyChange(() => CanCheckOut);
 		}
 
 		public bool CanRemoveFromCart
@@ -197,16 +200,28 @@ namespace Accounting.DesktopUI.ViewModels
 			{
 				bool output = false;
 
-				//
+				if(Cart.Count > 0)
+				{
+					output = true;
+				}
 
 				return output;
 			}
 		}
 
-		public void CheckOut()
+		public async Task CheckOut()
 		{
+			SaleModel sale = new SaleModel();
+			foreach (var item in Cart)
+			{
+				sale.SaleDetails.Add(new SaleDetailModel 
+				{
+					ProductId = item.Product.Id,
+					Quantity = item.QuantityInCatr
+				});
+			}
 
+			await _saleEndpoint.PostSale(sale);
 		}
-
 	}
 }

@@ -37,7 +37,7 @@ namespace Accounting.DataManager.Library.DataAccess
         {
             string connectionString = GetConnectionString(connectionStringName);
 
-            using (IDbConnection connection = new SqlConnection())
+            using (IDbConnection connection = new SqlConnection(connectionString))
             {
                 connection.Execute(storedProcedure, parameters,
                     commandType: CommandType.StoredProcedure);
