@@ -61,7 +61,33 @@ namespace Accounting.DesktopUI.ViewModels
 			{
 				_selectedProduct = value;
 				NotifyOfPropertyChange(() => SelectedProduct);
+				NotifyOfPropertyChange(() => CanAddToCart);
 			}
+		}
+
+		
+		private CartItemDisplayModel _selectedCartItem;
+		public CartItemDisplayModel SelectedCartItem
+		{
+			get { return _selectedCartItem; }
+			set
+			{
+				_selectedCartItem = value;
+				NotifyOfPropertyChange(() => SelectedCartItem);
+				NotifyOfPropertyChange(() => CanRemoveFromCart);
+			}
+		}
+
+		private async Task ResetSalesViewModel()
+		{
+			Cart = new BindingList<CartItemDisplayModel>();
+			//
+			await LoadProducts();
+
+			NotifyOfPropertyChange(() => SubTotal);
+			NotifyOfPropertyChange(() => Tax);
+			NotifyOfPropertyChange(() => Total);
+			NotifyOfPropertyChange(() => CanCheckOut);
 		}
 
 
@@ -185,7 +211,10 @@ namespace Accounting.DesktopUI.ViewModels
 			{
 				bool output = false;
 
-				//
+				if(SelectedCartItem != null && SelectedCartItem?.QuantityInCatr > 0)
+				{
+					output = true;
+				}
 
 				return output;
 			}
@@ -193,9 +222,24 @@ namespace Accounting.DesktopUI.ViewModels
 
 		public void RemoveFromCart()
 		{
+
+			SelectedCartItem.Product.QuantityInStock += 1;
+
+			if (SelectedCartItem.QuantityInCatr > 1)
+			{
+				SelectedCartItem.QuantityInCatr -= 1;
+				SelectedCartItem.Product.QuantityInStock += 1;
+			}
+			else
+			{
+				Cart.Remove(SelectedCartItem);
+			}
+
 			NotifyOfPropertyChange(() => SubTotal);
 			NotifyOfPropertyChange(() => Tax);
 			NotifyOfPropertyChange(() => Total);
+			NotifyOfPropertyChange(() => CanCheckOut);
+			NotifyOfPropertyChange(() => CanAddToCart);
 		}
 
 
@@ -227,6 +271,8 @@ namespace Accounting.DesktopUI.ViewModels
 			}
 
 			await _saleEndpoint.PostSale(sale);
+
+			await ResetSalesViewModel();
 		}
 	}
 }
