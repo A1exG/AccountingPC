@@ -13,6 +13,7 @@ namespace Accounting.DataManager.Controllers
     [Authorize]
     public class SaleController : ApiController
     {
+        [Authorize(Roles = "Cashier")]
         public void Post(SaleModel sale)
         {
             if (sale != null)
@@ -24,6 +25,7 @@ namespace Accounting.DataManager.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,Manager")]
         [Route("GetSalesReport")]
         public List<SaleReportModel> GetSalesReport()
         {
