@@ -15,13 +15,20 @@ namespace Accounting.DataManager.Controllers
     {
         public void Post(SaleModel sale)
         {
-            if(sale != null)
+            if (sale != null)
             {
                 SaleData data = new SaleData();
                 string userId = RequestContext.Principal.Identity.GetUserId();
 
                 data.SaveSale(sale, userId);
             }
+        }
+
+        [Route("GetSalesReport")]
+        public List<SaleReportModel> GetSalesReport()
+        {
+            SaleData data = new SaleData();
+            return data.GetSaleReport();
         }
     }
 }

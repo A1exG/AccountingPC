@@ -49,16 +49,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigHelper.cs" />
+    <Compile Include="DataAccess\InventoryData.cs" />
     <Compile Include="DataAccess\ProductData.cs" />
     <Compile Include="DataAccess\SaleData.cs" />
     <Compile Include="DataAccess\UserData.cs" />
     <Compile Include="EntityLibrary\Interfaces\IEntity.cs" />
     <Compile Include="EntityLibrary\Interfaces\IUser.cs" />
+    <Compile Include="EntityLibrary\InventoryModel.cs" />
     <Compile Include="EntityLibrary\ProductModel.cs" />
     <Compile Include="EntityLibrary\SaleDBModel.cs" />
     <Compile Include="EntityLibrary\SaleDetailDBModel.cs" />
     <Compile Include="EntityLibrary\SaleDetailModel.cs" />
     <Compile Include="EntityLibrary\SaleModel.cs" />
+    <Compile Include="EntityLibrary\SaleReportModel.cs" />
     <Compile Include="EntityLibrary\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Internal\DataAccess\SqlDataAccess.cs" />
