@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.DataManager", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.DesktopUI.Library", "Accounting.DesktopUI.Library\Accounting.DesktopUI.Library.csproj", "{2FB462D5-65A5-4A07-8A4E-DE69B15A781D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{6DD7F7F5-06F2-4CC5-B813-59C68A11CCBD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{5EE76E6C-596B-40B6-A6B1-7BD33A1609E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{7A4D2756-BBF0-4657-A47B-37172D73D949}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +50,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CA3488D4-DAC2-460B-A72A-C7701B88C0B5} = {5EE76E6C-596B-40B6-A6B1-7BD33A1609E7}
+		{BBFF9C1C-86FC-4E34-9EBE-14E56EF581A6} = {7A4D2756-BBF0-4657-A47B-37172D73D949}
+		{0FADDE61-C817-4261-A738-6489E1583FE1} = {6DD7F7F5-06F2-4CC5-B813-59C68A11CCBD}
+		{3495E4E5-16F0-4E68-BF70-C23E6CA9124D} = {5EE76E6C-596B-40B6-A6B1-7BD33A1609E7}
+		{2FB462D5-65A5-4A07-8A4E-DE69B15A781D} = {7A4D2756-BBF0-4657-A47B-37172D73D949}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE65D5A6-2B96-4C4F-9CF3-65D70A9E9D1B}
